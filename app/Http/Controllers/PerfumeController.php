@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Perfume;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PerfumeController extends Controller
 {
@@ -23,8 +24,10 @@ class PerfumeController extends Controller
 
     public function store(Request $request){
         $data=$request->all();
+        $path=Storage::disk('public')->put("perfume_img", $data["cover_img"]);
         $perfume= new Perfume();
         $perfume->fill($data);
+        $perfume["cover_img"]=$path;
         $perfume->save();
 
         return redirect()->route("perfumes.show", $perfume->id);
