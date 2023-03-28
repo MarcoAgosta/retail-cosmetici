@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
-use App\Http\Controllers\PerfumeController;
+use App\Http\Controllers\Admin\PerfumeController;
 
 /*
 |--------------------------------------------------------------------------

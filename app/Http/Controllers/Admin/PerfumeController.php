@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Perfume;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -10,16 +11,16 @@ class PerfumeController extends Controller
 {
     public function index(){
         $perfumes=Perfume::all();
-        return view("perfumes.index", compact("perfumes"));
+        return view("admin.perfumes.index", compact("perfumes"));
     }
 
     public function show($id){
         $perfume=Perfume::findOrFail($id);
-        return view("perfumes.show", compact("perfume"));
+        return view("admin.perfumes.show", compact("perfume"));
     }
 
     public function create(){
-        return view("perfumes.create");
+        return view("admin.perfumes.create");
     }
 
     public function store(Request $request){
@@ -30,7 +31,7 @@ class PerfumeController extends Controller
         $perfume["cover_img"]=$path;
         $perfume->save();
 
-        return redirect()->route("perfumes.show", $perfume->id);
+        return redirect()->route("admin.perfumes.show", $perfume->id);
     }
 
     public function edit($id){
@@ -39,7 +40,7 @@ class PerfumeController extends Controller
             abort(404, "Ritenta.");
         };
 
-        return view("perfumes.edit", compact("perfume"));
+        return view("admin.perfumes.edit", compact("perfume"));
     }
 
     public function update(Request $request, $id){
@@ -48,12 +49,12 @@ class PerfumeController extends Controller
         $perfume->fill($data);
         $perfume->save();
 
-        return redirect()->route("perfumes.show", $perfume->id);
+        return redirect()->route("admin.perfumes.show", $perfume->id);
     }
 
     public function destroy($id){
         $perfume=Perfume::findOrFail($id);
         $perfume->delete();
-        return redirect()->route("perfumes.index");
+        return redirect()->route("admin.perfumes.index");
     }
 }
