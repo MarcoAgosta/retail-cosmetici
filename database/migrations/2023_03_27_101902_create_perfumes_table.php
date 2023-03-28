@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('perfume', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+        Schema::create('perfumes', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->string("name");
+            $table->string("product_img");
+            $table->text("description");
         });
     }
 
@@ -22,9 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('perfume', function (Blueprint $table) {
-            $table->dropForeign('apartments_user_id_foreign');
-            $table->dropColumn('user_id');
-        });
+        Schema::dropIfExists('perfumes');
     }
 };
