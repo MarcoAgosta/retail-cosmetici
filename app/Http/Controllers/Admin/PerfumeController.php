@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Perfume;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class PerfumeController extends Controller
@@ -16,7 +17,12 @@ class PerfumeController extends Controller
 
     public function show($id){
         $perfume=Perfume::findOrFail($id);
-        return view("admin.perfumes.show", compact("perfume"));
+        $id_admin=Auth::user()->id;
+        if($id_admin===$perfume->user_id){
+            return view("admin.perfumes.show", compact("perfume"));
+        }else{
+            return redirect()->route("dashboard");
+        }   
     }
 
     public function create(){
@@ -36,11 +42,15 @@ class PerfumeController extends Controller
 
     public function edit($id){
         $perfume=Perfume::find($id);
+        $id_admin=Auth::user()->id;
         if(!$perfume){
             abort(404, "Ritenta.");
         };
-
-        return view("admin.perfumes.edit", compact("perfume"));
+        if($id_admin===$perfume->user_id){
+            return view("admin.perfumes.edit", compact("perfume"));
+        }else{
+            return redirect()->route("dashboard");
+        }   
     }
 
     public function update(Request $request, $id){
