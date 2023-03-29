@@ -15,7 +15,11 @@
             </p>
             <div class="d-flex justify-content-end">
                 <a href="{{route('admin.perfumes.edit', $perfume->id)}}" style="margin-right:1rem" class="btn btn-primary">Modifica profumo</a>
-                <a href="{{route('admin.perfumes.show', $perfume->id)}}"  class="btn btn-danger">Elimina profumo</a>
+                <form action="{{route('admin.perfumes.show', $perfume->id)}}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button class="btn btn-danger">Elimina profumo</button>
+                </form>
             </div>
         </div>
     </div>
