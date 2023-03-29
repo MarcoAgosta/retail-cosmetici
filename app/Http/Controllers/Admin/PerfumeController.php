@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePerfumeRequest;
+use App\Http\Requests\UpdatePerfumeRequest;
 use App\Models\Perfume;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +38,7 @@ class PerfumeController extends Controller
         return view("admin.perfumes.create");
     }
 
-    public function store(Request $request){
+    public function store(StorePerfumeRequest $request){
         $data=$request->all();
         $perfume= new Perfume();
         if (key_exists('product_img', $data)){
@@ -64,7 +66,7 @@ class PerfumeController extends Controller
         }   
     }
 
-    public function update(Request $request, $id){
+    public function update(UpdatePerfumeRequest $request, $id){
         $data=$request->all();
         $perfume=Perfume::findOrFail($id);
         if (key_exists('product_img', $data)) {
