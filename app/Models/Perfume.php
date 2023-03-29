@@ -11,8 +11,8 @@ class Perfume extends Model
 
     protected $fillable = [
         'name',
-        'cover_img',
         'descriprion',
+        'product_img',
         'id'
     ];
 

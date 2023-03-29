@@ -5,7 +5,7 @@
     <div class="mt-5">
         <h2>{{$perfume->name}}</h2>
     </div>
-    <div class="row mt-4">
+    <div class="row mt-5">
         <div class="col-4 offset-1">
             <img src="{{ asset('storage/' . $perfume->product_img) }}" class="w-100" alt="Immagine del profumo {{$perfume->name}}">
         </div>

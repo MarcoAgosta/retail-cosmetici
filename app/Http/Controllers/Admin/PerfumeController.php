@@ -38,7 +38,7 @@ class PerfumeController extends Controller
 
     public function store(Request $request){
         $data=$request->all();
-        $path=Storage::disk('public')->put("perfume_img", $data["cover_img"]);
+        $path=Storage::disk('public')->put("product_img", $data["product_img"]);
         $perfume= new Perfume();
         $perfume->fill($data);
         $perfume["cover_img"]=$path;
@@ -63,7 +63,13 @@ class PerfumeController extends Controller
     public function update(Request $request, $id){
         $data=$request->all();
         $perfume=Perfume::findOrFail($id);
-        $perfume->fill($data);
+        if (key_exists('product_img', $data)) {
+            $path = Storage::disk('public')->put('product_img', $data['product_img']);
+            Storage::delete($perfume->product_img);
+            $perfume->product_img=$path;
+        }
+        $perfume->name=$data["name"];
+        $perfume->description=$data["description"];
         $perfume->save();
 
         return redirect()->route("admin.perfumes.show", $perfume->id);
