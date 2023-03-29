@@ -27,7 +27,7 @@
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel d-flex align-items-center">
-                        <h4 class="m-0 logo-scritta">Profumeria</h4>
+                        <h3 class="m-0 logo-scritta">Profumeria</h3>
                         <img src="{{ url('Logo.jpg') }}" class="logo" alt="Logo profumi">       
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
