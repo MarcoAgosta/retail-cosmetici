@@ -4,6 +4,7 @@
 <div class="container">
     <div class="mt-5">
         <h2 class="nome-profumo">{{$perfume->name}}</h2>
+        <h4>{{$perfume->brand}}</h4>
     </div>
     <div class="row mt-5">
         <div class="col-4 offset-1">

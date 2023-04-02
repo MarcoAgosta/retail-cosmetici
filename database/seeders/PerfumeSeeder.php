@@ -90,7 +90,7 @@ class PerfumeSeeder extends Seeder
             $nuovoProfumo->name=$name;
             $nuovoProfumo->description=$lorem;
             $nuovoProfumo->product_img="product_img/profumo_prova.jpg";
-            $nuovoProfumo->brand=array_rand($brands, 1);
+            $nuovoProfumo->brand=$brands[array_rand($brands)];
             $nuovoProfumo->user_id=rand(1, $users);
             $nuovoProfumo->save();
         };
