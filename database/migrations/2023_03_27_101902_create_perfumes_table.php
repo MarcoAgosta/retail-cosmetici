@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string("name");
             $table->string("product_img");
+            $table->string("brand");
             $table->text("description");
         });
     }

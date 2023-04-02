@@ -71,6 +71,14 @@ class PerfumeSeeder extends Seeder
         "Peonia Rosa",
         ];
 
+        $brands=[
+            "Gucci",
+            "Calvin Klein",
+            "Versace",
+            "Dior",
+            "BOSS"
+        ];
+
         $lorem="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tortor purus, varius eu orci quis, ultrices tincidunt mauris.
         Maecenas rhoncus facilisis vehicula. Vestibulum sit amet odio auctor, commodo tellus in, feugiat nisi. Nam commodo mi non ligula fringilla imperdiet.
         Maecenas faucibus at mauris quis pellentesque. Duis auctor quam eget odio maximus, ut mattis mi gravida.
@@ -82,6 +90,7 @@ class PerfumeSeeder extends Seeder
             $nuovoProfumo->name=$name;
             $nuovoProfumo->description=$lorem;
             $nuovoProfumo->product_img="product_img/profumo_prova.jpg";
+            $nuovoProfumo->brand=array_rand($brands, 1);
             $nuovoProfumo->user_id=rand(1, $users);
             $nuovoProfumo->save();
         };
