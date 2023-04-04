@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class PerfumeController extends Controller
 {
     public function index(){
-        $perfumes=Perfume::all();
+        $perfumes=Perfume::paginate();
         return response()->json([
             'success'=>true,
             'results'=>$perfumes
