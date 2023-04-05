@@ -12,7 +12,7 @@ class PerfumeController extends Controller
 
         $search = $request->header('search');
 
-        if ($search===""){
+        if (!$search){
             $perfumes=Perfume::paginate();
             return response()->json([
                 'success'=>true,
@@ -23,7 +23,7 @@ class PerfumeController extends Controller
             // Search in the title and body columns from the posts table
             $perfumes = Perfume::query()
                 ->where('name', 'like', '%' . $search . '%')
-                ->get();
+                ->paginate();
 
             // Return the search view with the resluts compacted
             return response()->json([
