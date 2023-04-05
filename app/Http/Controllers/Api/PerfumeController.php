@@ -10,7 +10,7 @@ class PerfumeController extends Controller
 {
     public function index(Request $request){
 
-        $search = $request->header('search');
+        $search = $request->input('search');
 
         if (!$search){
             $perfumes=Perfume::paginate();
