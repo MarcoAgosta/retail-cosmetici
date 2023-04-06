@@ -22,6 +22,10 @@
 <style>
 .card-img-top{
     border-bottom: 1px solid lightgray;
+    max-height: 71%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 </style>
 @endsection

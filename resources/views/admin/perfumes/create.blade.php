@@ -22,7 +22,12 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label" for="descrizione">Descrizione</label>
+            <label class="form-label" for="brand">Marca</label>
+            <input name="brand" type="text" class="form-control" id="brand" >
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="description">Descrizione</label>
             <textarea name="description" class="form-control" id="desciption" rows="5"></textarea>
         </div>
 

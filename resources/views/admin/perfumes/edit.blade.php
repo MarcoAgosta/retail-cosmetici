@@ -22,8 +22,13 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label" for="descrizione">Descrizione</label>
-            <textarea name="description" class="form-control" id="desciption" rows="5">{{$perfume->description}}</textarea>
+            <label class="form-label" for="brand">Marca</label>
+            <input name="brand" type="text" class="form-control" id="brand" value="{{$perfume->brand}}">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="description">Descrizione</label>
+            <textarea name="description" class="form-control" id="desrciption" rows="5">{{$perfume->description}}</textarea>
         </div>
 
         <div class="mb-3">

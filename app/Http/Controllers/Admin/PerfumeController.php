@@ -47,6 +47,7 @@ class PerfumeController extends Controller
         }
         $perfume->name=$data["name"];
         $perfume->description=$data["description"];
+        $perfume->brand=$data["brand"];
         $perfume->user_id=Auth::id();
         $perfume->save();
 
@@ -75,6 +76,7 @@ class PerfumeController extends Controller
         }
         $perfume->name=$data["name"];
         $perfume->description=$data["description"];
+        $perfume->brand=$data["brand"];
         $perfume->save();
 
         return redirect()->route("admin.perfumes.show", $perfume->id);
