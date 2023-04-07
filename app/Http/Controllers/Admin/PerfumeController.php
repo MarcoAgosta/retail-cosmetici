@@ -13,14 +13,10 @@ use Illuminate\Support\Facades\Storage;
 class PerfumeController extends Controller
 {
     public function index(){
-        $allPerfumes=Perfume::all();
+        
         $id_admin=Auth::user()->id;
-        $perfumes=[];
-        foreach($allPerfumes as $perfume){
-            if($perfume->user_id==$id_admin){
-                array_push($perfumes, $perfume);
-            };
-        };
+        $perfumes=Perfume::where("user_id", $id_admin)->get();
+        
         return view("admin.perfumes.index", compact("perfumes"));
     }
 

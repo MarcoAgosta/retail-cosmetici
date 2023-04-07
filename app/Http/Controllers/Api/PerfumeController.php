@@ -20,12 +20,12 @@ class PerfumeController extends Controller
             ]);
 
         }else{
-            // Search in the title and body columns from the posts table
+            
             $perfumes = Perfume::query()
                 ->where('name', 'like', '%' . $search . '%')
                 ->paginate();
 
-            // Return the search view with the resluts compacted
+
             return response()->json([
                 'success'=>true,
                 'results'=>$perfumes
